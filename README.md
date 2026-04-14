@@ -1,49 +1,41 @@
 # 6Minds 🧠
+> 6 expert minds. Real market analysis. No sugarcoating.
 
-> 6 expert minds analyze your startup idea. Real market data. Brutal honesty. No sugarcoating.
+**Live:** https://6minds-production.up.railway.app
 
-![6Minds](static/icons/logo.png)
+---
 
 ## What is 6Minds?
 
-6Minds is a startup idea analyzer that puts your idea in front of 6 world-class expert personas — each with a different lens, different priorities, and zero tolerance for bad ideas.
+You pitch your startup idea. 6 world-class expert personas tear it apart — with real market data, real competitor names, real funding numbers.
 
-Not a feel-good validator. Not a generic AI chatbot.
-A brutal, honest, market-aware analysis engine.
+Not a feel-good validator. Not a generic AI response.
+A brutal, honest, market-aware analysis engine that tells you the truth before the market does.
 
 ---
 
 ## The 6 Expert Minds
 
-| Expert | Role | What they look for |
-|--------|------|-------------------|
-| 🦈 The Shark | Investor | TAM, unit economics, exit potential |
-| 🔥 Been There, Failed That | Failed Founder | Real execution risks and failure patterns |
-| 🌍 The Market Oracle | Market Analyst | Real competitors, market size, timing |
-| 😤 Your Target Customer | End User | Willingness to pay, switching costs |
-| ⚔️ Your Biggest Competitor | Competitor CEO | How they would crush you |
-| 💡 The Billionaire Builder | Serial Founder | The one thing that makes or breaks it |
+| Expert | Persona | What they look for |
+|--------|---------|-------------------|
+| 🦈 The Shark | Cold-blooded VC | TAM, unit economics, exit potential |
+| 🔥 Been There, Failed That | Failed founder | Real execution risks, why ideas die |
+| 🌍 The Market Oracle | Market analyst | Real competitors, market size, timing |
+| 😤 Your Target Customer | The actual user | Willingness to pay, switching costs |
+| ⚔️ Your Biggest Competitor | Competitor CEO | Exactly how they would crush you |
+| 💡 The Billionaire Builder | Serial founder | The one thing that makes or breaks it |
 
 ---
 
 ## Features
 
-- **Real Market Analysis** — actual competitor names, funding data, market sizes
-- **Startup Viability Score** — scored across 4 dimensions (not just a random number)
-- **Collapsible Expert Cards** — KEY INSIGHT always visible, full analysis on demand
+- **6 Expert Analysis Cards** — each with a KEY INSIGHT always visible, full analysis expandable
+- **Startup Viability Score** — scored across 4 dimensions out of 100
+- **Sub-scores** — Market Opportunity / Differentiation / Execution Feasibility / Timing & Trends
 - **Startup Battle Plan** — after the roast, get a full rescue plan to actually succeed
-- **Find Your First 10 Customers** — specific, actionable steps
-- **30-Day Validation Plan** — exactly what to do this month
-- **Kill Metrics** — 3 numbers that tell you in 30 days if it works
-
----
-
-## How It Works
-
-1. **Describe your idea** — the more detail, the better the analysis
-2. **Get roasted** — all 6 experts analyze it simultaneously
-3. **See your score** — Startup Viability Score out of 100
-4. **Get your battle plan** — click "Get Your Startup Battle Plan" for a full rescue
+- **Validate in 30 Days** — 5 specific steps to test your idea this month
+- **Don't Do This** — 3 mistakes that will kill your startup
+- **First Revenue** — exactly how to make your first money
 
 ---
 
@@ -62,33 +54,27 @@ A brutal, honest, market-aware analysis engine.
 
 ## Tech Stack
 
-- **Backend** — Python, Flask
-- **AI** — Anthropic Claude API (Haiku model)
-- **Frontend** — Vanilla JS, Pure CSS
-- **Deployment** — Railway
-- **No database** — stateless, fast, simple
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python, Flask |
+| AI | Anthropic Claude API (Haiku) |
+| Concurrent Analysis | ThreadPoolExecutor (6 simultaneous calls) |
+| Frontend | Vanilla JS, Pure CSS |
+| Deployment | Railway |
+| Database | None — stateless |
 
 ---
 
-## Local Development
+## Local Setup
 
 ```bash
-# Clone the repo
 git clone https://github.com/meisamith/6minds.git
 cd 6minds
-
-# Create virtual environment
 python -m venv .venv
 source .venv/bin/activate
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Add your API key
 cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
-
-# Run locally
+# Add your ANTHROPIC_API_KEY to .env
 python app.py
 ```
 
@@ -103,18 +89,20 @@ python app.py
 
 ---
 
-## Deployment
+## My Other Projects
 
-Deployed on Railway. Every push to `main` auto-deploys.
+| Project | Description | Live |
+|---------|-------------|------|
+| **CarTruth** | Honest car ownership guide for Indian buyers | [web-production-dfc9.up.railway.app](https://web-production-dfc9.up.railway.app) |
+| **AI Code Reviewer** | CLI tool that reviews your code using Claude API | GitHub |
 
 ---
 
 ## Built by
 
 **Amith Choudhary**
+[GitHub](https://github.com/meisamith)
 
 ---
 
-## License
-
-MIT — do whatever you want with it.
+*Built with Claude API — because brutal honesty is a feature, not a bug.*

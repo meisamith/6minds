@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Startup Battle Plan — RoastMyIdea</title>
+  <title>6Minds — Your Startup Battle Plan</title>
+  <link rel="icon" type="image/png" href="/static/icons/logo.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #080808;
+      --bg:        #000000;
       --surface:   #111111;
       --surface-2: #181818;
-      --border:    #242424;
+      --border:    #222222;
       --border-2:  #2e2e2e;
       --text:      #f2f2f2;
       --muted:     #666;
@@ -31,11 +32,11 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding: 3rem 1.5rem 6rem;
+      padding: 0 1.5rem 6rem;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container { max-width: 920px; margin: 0 auto; }
+    .container { max-width: 920px; margin: 0 auto; padding-top: 3rem; }
 
     /* ── Header ── */
     .page-header {
@@ -431,6 +432,12 @@
   </style>
 </head>
 <body>
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;background:#000000;border-bottom:1px solid #222222;position:sticky;top:0;z-index:100;">
+    <a href="/" style="text-decoration:none;display:flex;align-items:center;">
+      <img src="/static/icons/logo.png" alt="6Minds" style="height:52px;width:180px;object-fit:contain;object-position:left center;">
+    </a>
+  </nav>
+
   <div class="container">
 
     <div class="page-header">

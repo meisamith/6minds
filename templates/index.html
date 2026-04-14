@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will Your Idea Survive the Real World?</title>
+  <title>6Minds — Will Your Idea Survive?</title>
+  <link rel="icon" type="image/png" href="/static/icons/logo.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #080808;
+      --bg:        #000000;
       --surface:   #111111;
       --surface-2: #181818;
-      --border:    #242424;
+      --border:    #222222;
       --border-2:  #2e2e2e;
       --text:      #f2f2f2;
       --muted:     #666;
@@ -29,29 +30,29 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding: 3rem 1.5rem 6rem;
+      padding: 0 1.5rem 6rem;
       -webkit-font-smoothing: antialiased;
     }
 
     /* ── Header ── */
     header {
       text-align: center;
-      margin-bottom: 3rem;
+      padding: 4rem 0 2.5rem;
+      margin-bottom: 1rem;
     }
 
     .site-title {
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
-      font-weight: 900;
-      letter-spacing: -1px;
-      line-height: 1.15;
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
       margin-bottom: 0.6rem;
+      color: var(--text);
     }
-
-    .site-title .highlight { color: var(--accent); }
 
     .tagline {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       letter-spacing: 0.01em;
     }
 
@@ -112,7 +113,7 @@
     .analyze-btn {
       margin-top: 0.85rem;
       width: 100%;
-      background: var(--accent);
+      background: #ff4500;
       color: #fff;
       border: none;
       border-radius: 12px;
@@ -210,8 +211,8 @@
     }
 
     .roast-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #111111;
+      border: 1px solid #222222;
       border-radius: 16px;
       padding: 1.4rem;
       display: flex;
@@ -269,9 +270,9 @@
 
     /* ── Key insight box ── */
     .card-insight {
-      background: rgba(245,158,11,0.07);
-      border: 1px solid rgba(245,158,11,0.2);
-      border-radius: 10px;
+      background: rgba(255,69,0,0.08);
+      border-left: 3px solid #ff4500;
+      border-radius: 0 8px 8px 0;
       padding: 0.75rem 0.9rem;
     }
 
@@ -281,14 +282,14 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--amber);
+      color: #ff6533;
       margin-bottom: 0.35rem;
     }
 
     .insight-text {
       font-size: 0.82rem;
       line-height: 1.55;
-      color: #e0c97a;
+      color: #ffb899;
     }
 
     /* ── Score bar row ── */
@@ -372,7 +373,7 @@
 
     .score-red    { color: var(--red); }
     .score-orange { color: var(--orange); }
-    .score-green  { color: var(--green); }
+    .score-green  { color: #ff4500; }
 
     /* ── Sub scores ── */
     .sub-scores {
@@ -456,7 +457,7 @@
     .rescue-btn {
       width: 100%;
       max-width: 480px;
-      background: #22c55e;
+      background: #ff4500;
       color: #fff;
       border: none;
       border-radius: 12px;
@@ -464,15 +465,15 @@
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.01em;
-      padding: 0.9rem 1.5rem;
+      padding: 1rem 1.5rem;
       cursor: pointer;
       transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-      box-shadow: 0 4px 24px rgba(34,197,94,0.25);
+      box-shadow: 0 4px 24px rgba(255,69,0,0.25);
     }
 
     .rescue-btn:hover {
-      background: #16a34a;
-      box-shadow: 0 4px 32px rgba(34,197,94,0.4);
+      background: #e03d00;
+      box-shadow: 0 4px 32px rgba(255,69,0,0.4);
     }
 
     .rescue-btn:active { transform: scale(0.99); }
@@ -510,9 +511,15 @@
 </head>
 <body>
 
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px;background:#000000;border-bottom:1px solid #222222;position:sticky;top:0;z-index:100;">
+    <a href="/" style="text-decoration:none;display:flex;align-items:center;">
+      <img src="/static/icons/logo.png" alt="6Minds" style="height:52px;width:180px;object-fit:contain;object-position:left center;">
+    </a>
+  </nav>
+
   <header>
-    <h1 class="site-title">Will Your Idea <span class="highlight">Survive</span> the Real World? 🌍</h1>
-    <p class="tagline">6 brutally honest experts. Real market analysis. No sugarcoating.</p>
+    <h1 class="site-title">6Minds</h1>
+    <p class="tagline">6 expert minds. Real market analysis. No sugarcoating.</p>
   </header>
 
   <div class="input-panel">
@@ -593,7 +600,7 @@
       lines.push(`🌍 Startup Viability Score: ${survival_score}/100`);
       lines.push(`"${scoreVerdict(survival_score)}"`);
       lines.push('');
-      lines.push('Test your idea → roastmyidea.com');
+      lines.push('Test your idea → 6minds.app');
       return lines.join('\n');
     }
 
@@ -628,9 +635,7 @@
     }
 
     function subScoreColor(pct) {
-      if (pct >= 60) return '#22c55e';
-      if (pct >= 40) return '#f97316';
-      return '#ef4444';
+      return '#ff4500';
     }
 
     function toggleCritic(btn) {

@@ -1,19 +1,22 @@
-# RoastMyIdea 🔥
+# 6Minds
 
-An AI web app that evaluates your startup idea through 5 brutal personas.
-No sugarcoating. No encouragement. Just honest destruction.
+6 expert minds analyze your startup idea. Real market data. No sugarcoating.
 
 ## The Panel
-- 💼 Cynical VC — attacks your market size and moat
-- 🎓 Broke College Student — questions if anyone would actually pay
-- 👴 Boomer Uncle — exposes your hidden assumptions  
-- 🤙 Silicon Valley Bro — tells you it already exists
-- ☠️ Ruthless Competitor — explains how they'd copy you in 90 days
+- 🦈 The Shark — TAM, unit economics, exit potential
+- 🔥 Been There, Failed That — execution nightmares from real experience
+- 🌍 The Market Oracle — real market data, competitors, funding rounds
+- 😤 Your Target Customer — authentic user perspective, switching costs, real WTP
+- ⚔️ Your Biggest Competitor — exactly how they'd crush you in 90 days
+- 💡 The Billionaire Builder — the one thing that makes or breaks this
 
 ## Built with
 - Python + Flask
 - Claude API by Anthropic
 - Deployed on Render
+
+## Built by
+Amith Choudhary
 
 ## Run locally
 pip install -r requirements.txt

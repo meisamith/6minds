@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET_KEY", "roast-my-idea-secret-2024")
+app.secret_key = os.environ.get("FLASK_SECRET_KEY", "6minds-secret-2024")
 client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 # ── Shared scoring guide appended to every persona ────────────────────────────

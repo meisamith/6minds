@@ -378,32 +378,30 @@ def rescue():
 
     print("Roasts summary length:", len(roasts_summary))
 
-    rescue_prompt = f"""Help this startup idea succeed.
+    rescue_prompt = f"""
 Idea: {idea}
-Expert feedback received:
-{roasts_summary[:1500]}
+Expert feedback: {roasts_summary[:300]}
 
-Return ONLY this JSON (no markdown, no fences):
+Return ONLY this JSON, keep each value SHORT (max 2 sentences each):
 {{
-  "stronger_idea": "A reframed, stronger version of their idea that directly addresses the main criticisms",
-  "why_it_can_work": ["Genuine reason 1 this could succeed with real data", "Genuine reason 2", "Genuine reason 3"],
-  "the_pivot": "If the original idea is weak, suggest a SPECIFIC concrete pivot — not generic advice, a real business model shift",
-  "kill_the_competition": "Exactly how to beat the specific competitors the critics mentioned — tactical, not generic",
-  "kill_metrics": ["Metric 1: specific number and what it proves in 30 days", "Metric 2: specific number and what it proves", "Metric 3: specific number and what it proves"],
-  "validate_in_30_days": ["Specific action step 1", "Specific action step 2", "Specific action step 3", "Specific action step 4", "Specific action step 5"],
-  "find_first_10_customers": "Exactly WHERE to find the first 10 customers (specific platforms, communities, events), WHAT to say to them, and HOW to close them",
-  "unfair_advantage": "What unique advantage does this specific founder have that well-funded competitors cannot easily replicate",
-  "dont_do_this": ["Specific mistake 1 that kills startups like this", "Specific mistake 2", "Specific mistake 3"],
-  "target_customer": "Exactly who to sell to first — specific demographics, psychographics, and where to find them",
-  "first_revenue": "How to make the first ₹10,000 from this idea — specific actions in sequence",
+  "stronger_idea": "one sentence reframe of the idea",
+  "why_it_can_work": ["reason 1", "reason 2", "reason 3"],
+  "kill_the_competition": "one sentence strategy",
+  "validate_in_30_days": ["step 1", "step 2", "step 3", "step 4", "step 5"],
+  "dont_do_this": ["mistake 1", "mistake 2", "mistake 3"],
+  "target_customer": "one sentence description",
+  "first_revenue": "one sentence on making first money",
   "revised_survival_score": 65,
-  "score_explanation": "Why the improved version scores higher than the original"
-}}"""
+  "score_explanation": "one sentence"
+}}
+
+IMPORTANT: Keep ALL values very short. Do not write long paragraphs.
+"""
 
     try:
         message = client.messages.create(
             model="claude-haiku-4-5-20251001",
-            max_tokens=2000,
+            max_tokens=1500,
             system="You are a startup strategist who helps founders fix bad ideas. Respond in valid JSON only. No markdown, no code fences, no preamble.",
             messages=[{"role": "user", "content": rescue_prompt}],
         )
@@ -411,6 +409,12 @@ Return ONLY this JSON (no markdown, no fences):
         print("RESCUE RAW (first 300 chars):", raw[:300])
 
         cleaned = clean_json_response(raw)
+        if len(cleaned) > 5000:
+            cleaned = cleaned[:5000]
+            # Find last complete field
+            last_brace = cleaned.rfind('}')
+            if last_brace > 0:
+                cleaned = cleaned[:last_brace+1]
         print("CLEANED FINAL:", cleaned[:100] if cleaned else "EMPTY!")
         try:
             rescue_data = json.loads(cleaned)
